@@ -1,0 +1,14 @@
+{
+    "name": "nicolajknudsen/modified-drupal-coding-standard",
+    "description": "Custom ruleset for Drupal development",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Nicolaj Knudsen"
+        }
+    ],
+    "require": {
+        "drupal/coder": "*"
+    },
+    "prefer-stable": true
+}

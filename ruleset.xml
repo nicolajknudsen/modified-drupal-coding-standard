@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<ruleset name="modified-drupal-coding-standard">
+  <description>The official drupal coding standard relaxed a bit</description>
+
+  <!-- Require space after ! in control structures -->
+  <rule ref="Generic.Formatting.SpaceAfterNot">
+  </rule>
+  <!-- Require a padding of 1 space in control structures -->
+  <rule ref="PSR2.ControlStructures.ControlStructureSpacing">
+    <properties>
+      <property name="requiredSpacesAfterOpen" value="1" />
+      <property name="requiredSpacesBeforeClose" value="1" />
+    </properties>
+  </rule>
+
+
+  <rule ref="Drupal">    <!-- This includes the whole Drupal standard from drupal/coder -->
+
+    <!-- Usage guide: -->
+    <!-- to disable a single error -->
+    <!-- <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.SpaceAfterFunction"/> -->
+    <!-- or to disable the whole sniff -->
+    <!-- <exclude name="Squiz.Functions.MultiLineFunctionDeclaration"/> -->
+
+
+
+    <!-- WHITESPACE -->
+    <!-- Allow whitespace in and after brackets -->
+    <exclude name="Drupal.WhiteSpace.CloseBracketSpacing"/>
+    <exclude name="Drupal.WhiteSpace.OpenBracketSpacing"/>
+    <exclude name="Drupal.Formatting.SpaceUnaryOperator"/>
+    <!-- More tests are needed for the following -->
+    <!-- <exclude name="Drupal.ControlStructures.ControlSignature"/> -->
+
+    <!-- Allow spaces after function call and before semicolon (for chaining) -->
+    <exclude name="PEAR.Functions.FunctionCallSignature"/>
+    <exclude name="Squiz.WhiteSpace.SemicolonSpacing"/>
+
+    <!-- Allow extra lines left for readability -->
+    <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+    <exclude name="Drupal.WhiteSpace.EmptyLines"/>
+
+
+    <!-- NAMING CONVENTIONS -->
+    <!-- Allow class property names to be snake_case -->
+    <exclude name="Drupal.NamingConventions.ValidVariableName.LowerCamelName"/>
+    <!-- Interfaces should NOT have the suffix Interface - it's redundant in the bad way -->
+    <exclude name="Drupal.Classes.InterfaceName.InterfaceSuffix"/>
+
+
+    <!-- MISC -->
+    <!-- Allow lower case booleans -->
+    <exclude name="Generic.PHP.UpperCaseConstant"/>
+
+    <!-- Allow arrays to only specify first key and let subsequent be implied-->
+    <exclude name="Squiz.Arrays.ArrayDeclaration.NoKeySpecified"/>
+
+    <!-- Allow render() as function name -->
+    <exclude name="Generic.NamingConventions.ConstructorName.OldStyle"/>
+
+
+
+    <!-- USE STATEMENTS AND CLASS REFERENCING -->
+    <exclude name="Drupal.Classes.UseGlobalClass"/>
+    <!-- This is bugged with traits -->
+    <exclude name="Drupal.Classes.UnusedUseStatement.UnusedUse"/>
+    <!-- Allow referencing fully qualified namespaces -->
+    <exclude name="Drupal.Classes.FullyQualifiedNamespace"/>
+
+
+
+    <!-- DOC COMMENTS -->
+    <!-- Ignore rule enforcing doc comments -->
+    <exclude name="Drupal.Commenting.FunctionComment"/>
+    <exclude name="Drupal.Commenting.ClassComment"/>
+    <exclude name="Drupal.Commenting.VariableComment"/>
+    <!-- Ignore formatting of doc comments -->
+    <exclude name="Drupal.Commenting.DocComment"/>
+    <exclude name="Drupal.Commenting.Deprecated"/>
+    <exclude name="Drupal.Commenting.HookComment"/>
+
+
+
+    <!-- COMMENTS -->
+    <!-- Ignore rules about whitespace and punctuation in comments -->
+    <exclude name="Drupal.Commenting.InlineComment"/>
+    <!-- Allow comments after statements - Mostly used for TODO etc -->
+    <exclude name="Drupal.Commenting.PostStatementComment"/>
+    <exclude name="Drupal.Classes.ClassDeclaration.ContentAfterBrace"/>
+    <!-- Allow 'gendered laguage' ('her' means something different in Danish) -->
+    <exclude name="Drupal.Commenting.GenderNeutralComment.GenderNeutral"/>
+    <!-- Ignore rule enforcing file comments -->
+    <exclude name="Drupal.Commenting.FileComment"/>
+
+
+
+
+
+    <!-- Show no warning on lines exceeding 80 chars -->
+    <exclude name="Drupal.Files.LineLength"/>
+    <exclude name="Drupal.Files.TxtFileLineLength"/>
+    <!-- Debugging -->
+    <!-- Allow the keyword 'debug' in functions -->
+    <exclude name="MySource.Debug.DebugCode"/>
+    <!-- Allow the keyword 'TODO' in comments -->
+    <exclude name="Drupal.Commenting.TodoComment"/>
+    <!-- Allow dpm(), kint() etc -->
+    <exclude name="Drupal.Functions.DiscouragedFunctions.Discouraged"/>
+
+
+
+
+
+
+    <!-- FIXER BUGS -->
+    <!-- This rule is great for normal function declarations, but fails at correctly identifying anonymous functions -->
+    <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.SpaceAfterFunction"/>
+
+
+  </rule>
+</ruleset>
